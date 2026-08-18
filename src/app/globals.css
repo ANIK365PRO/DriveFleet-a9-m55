@@ -1,26 +1,300 @@
 @import "tailwindcss";
+@import "@heroui/styles";
+
+/* =========================================================
+   DRIVEFLEET — NAVY & GOLD DESIGN SYSTEM
+  
+        ===  Overview ===
+
+   @theme inline 98 line,
+   Card, Glass Card 163 line,
+
+   Primary Button 192 line, Secondary Button 212 line,
+   Accent Button 231 line, Input 245 line, Section 262 line,
+
+   Dark Hero 269 line, Gold Gradient 282 line, Hero Gradient 293 line,
+   ========================================================= */
+
+
+/* Enable class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+/* =========================================================
+   LIGHT MODE
+   ========================================================= */
 
 :root {
+  /* ---------- Base ---------- */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+
+  /* ---------- Surface ---------- */
+  --surface: #f8fafc;
+  --card: #ffffff;
+
+  /* ---------- Brand ---------- */
+  --primary: #0d1b2a;
+  --gold: #f4c430;
+  --accent: #148ba6;
+
+  /* ---------- Text ---------- */
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+
+  /* ---------- Border ---------- */
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+
+  /* ---------- Status ---------- */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ff6068;
+  --info: #3b82f6;
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
 }
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+.dark {
+  /* ---------- Base ---------- */
+  --background: #0a1120;
+  --foreground: #f8fafc;
+
+  /* ---------- Surface ---------- */
+  --surface: #111827;
+  --card: #1f2937;
+
+  /* ---------- Brand ---------- */
+  --primary: #f4c430;
+  --gold: #f4c430;
+  --accent: #148ba6;
+
+  /* ---------- Text ---------- */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* ---------- Border ---------- */
+  --border: #334155;
+  --border-strong: #475569;
+
+  /* ---------- Status ---------- */
+  --success: #34d399;
+  --warning: #fbbf24;
+  --error: #ff6068;
+  --info: #3b82f6;
+}
+
+
+/* =========================================================
+   TAILWIND THEME TOKENS
+   ========================================================= */
 
 @theme inline {
+  /* ---------- Base ---------- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* ---------- Surfaces ---------- */
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+
+  /* ---------- Brand ---------- */
+  --color-primary: var(--primary);
+  --color-gold: var(--gold);
+  --color-accent: var(--accent);
+
+  /* ---------- Text ---------- */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  /* ---------- Border ---------- */
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  /* ---------- Status ---------- */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+
+  /* ---------- Fonts ---------- */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* ---------- Radius ---------- */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+
+/* =========================================================
+   REUSABLE COMPONENT CLASSES
+   ========================================================= */
+
+/* ---------- Card ---------- */
+
+.df-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+
+/* ---------- Glass Card ---------- */
+
+.df-glass {
+  background: color-mix(
+    in srgb,
+    var(--card) 85%,
+    transparent
+  );
+
+  border: 1px solid var(--border);
+
+  backdrop-filter: blur(12px);
+}
+
+
+/* ---------- Primary Button ---------- */
+
+.df-btn-primary {
+  background: var(--gold);
+  color: #0d1b2a;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  transition:
+    transform 150ms ease,
+    opacity 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.df-btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgb(244 196 48 / 20%);
+}
+
+
+/* ---------- Secondary Button ---------- */
+
+.df-btn-secondary {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.df-btn-secondary:hover {
+  background: var(--gold);
+  color: #0d1b2a;
+}
+
+
+/* ---------- Accent Button ---------- */
+
+.df-btn-accent {
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+}
+
+.df-btn-accent:hover {
+  opacity: 0.9;
+}
+
+
+/* ---------- Input ---------- */
+
+.df-input {
+  width: 100%;
+  background: var(--surface);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color 150ms ease;
+}
+
+.df-input:focus {
+  border-color: var(--accent);
+}
+
+
+/* ---------- Section ---------- */
+
+.df-section {
+  background: var(--background);
+}
+
+
+/* ---------- Dark Hero ---------- */
+
+.df-hero {
+  background:
+    linear-gradient(
+      135deg,
+      #0d1b2a 0%,
+      #111827 55%,
+      #148ba6 100%
+    );
+}
+
+
+/* ---------- Gold Gradient ---------- */
+
+.df-gold-gradient {
+  background: linear-gradient(
+    135deg,
+    #f4c430,
+    #ffd970
+  );
+}
+
+
+/* ---------- Hero Gradient ---------- */
+
+.df-hero-gradient {
+  background: linear-gradient(
+    135deg,
+    #0d182a,
+    #111827,
+    #148ba6
+  );
 }
