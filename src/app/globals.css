@@ -67,34 +67,33 @@
 
 .dark {
   /* ---------- Base ---------- */
-  --background: #0a1120;
+  --background: #080f1c;
   --foreground: #f8fafc;
 
   /* ---------- Surface ---------- */
-  --surface: #111827;
-  --card: #1f2937;
+  --surface: #0d1726;
+  --card: #111c2d;
 
   /* ---------- Brand ---------- */
-  --primary: #f4c430;
+  --primary: #16263a;
   --gold: #f4c430;
   --accent: #148ba6;
 
   /* ---------- Text ---------- */
   --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-secondary: #a8b4c5;
+  --text-muted: #718096;
 
   /* ---------- Border ---------- */
-  --border: #334155;
-  --border-strong: #475569;
+  --border: #243449;
+  --border-strong: #34465d;
 
   /* ---------- Status ---------- */
   --success: #34d399;
   --warning: #fbbf24;
-  --error: #ff6068;
-  --info: #3b82f6;
+  --error: #ff7078;
+  --info: #60a5fa;
 }
-
 
 /* =========================================================
    TAILWIND THEME TOKENS
@@ -190,10 +189,11 @@ body {
 /* ---------- Primary Button ---------- */
 
 .df-btn-primary {
-  background: var(--gold);
-  color: #0d1b2a;
+  background: var(--primary);
+  color: #ffffff;
   font-weight: 700;
   border-radius: var(--radius-md);
+
   transition:
     transform 150ms ease,
     opacity 150ms ease,
@@ -201,11 +201,10 @@ body {
 }
 
 .df-btn-primary:hover {
-  opacity: 0.9;
+  opacity: 0.92;
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgb(244 196 48 / 20%);
+  box-shadow: 0 8px 20px rgb(13 27 42 / 20%);
 }
-
 
 /* ---------- Secondary Button ---------- */
 
@@ -215,14 +214,17 @@ body {
   border: 1px solid var(--gold);
   border-radius: var(--radius-md);
   font-weight: 600;
+
   transition:
     background-color 150ms ease,
-    color 150ms ease;
+    color 150ms ease,
+    transform 150ms ease;
 }
 
 .df-btn-secondary:hover {
   background: var(--gold);
   color: #0d1b2a;
+  transform: translateY(-1px);
 }
 
 
@@ -233,10 +235,15 @@ body {
   color: #ffffff;
   font-weight: 600;
   border-radius: var(--radius-md);
+
+   transition:
+    opacity 150ms ease,
+    transform 150ms ease;
 }
 
 .df-btn-accent:hover {
   opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 
@@ -265,24 +272,24 @@ body {
 
 
 /* ---------- Dark Hero ---------- */
-
 .df-hero {
   background:
     linear-gradient(
       135deg,
-      #0d1b2a 0%,
-      #111827 55%,
-      #148ba6 100%
+      var(--primary) 0%,
+      var(--surface) 55%,
+      var(--accent) 100%
     );
 }
 
 
 /* ---------- Gold Gradient ---------- */
 
+
 .df-gold-gradient {
   background: linear-gradient(
     135deg,
-    #f4c430,
+    var(--gold),
     #ffd970
   );
 }
@@ -291,10 +298,11 @@ body {
 /* ---------- Hero Gradient ---------- */
 
 .df-hero-gradient {
-  background: linear-gradient(
-    135deg,
-    #0d182a,
-    #111827,
-    #148ba6
-  );
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--surface),
+      var(--accent)
+    );
 }
