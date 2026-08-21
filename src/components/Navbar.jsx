@@ -131,7 +131,8 @@ const NavbarSection = () => {
                             alt="DriveFleet Logo"
                             width={180}
                             height={70}
-
+                            loading="eager"
+                            priority
                             className="h-[70px] w-[130px] sm:w-[150px] lg:w-[165px] xl:w-[180px] object-cover transition-opacity duration-200"
                         />
                     </Link>

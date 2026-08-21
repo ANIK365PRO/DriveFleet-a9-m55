@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavbarSection from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+// import { Toast } from "@heroui/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,19 @@ export default function RootLayout({ children }) {
 
         </main>
         <FooterSection></FooterSection>
+
+
+        {/* <Toast.Provider>
+          <Toast>
+            <Toast.Indicator />
+            <Toast.Content>
+              <Toast.Title />
+              <Toast.Description />
+            </Toast.Content>
+            <Toast.ActionButton />
+            <Toast.CloseButton />
+          </Toast>
+        </Toast.Provider> */}
 
       </body>
         
