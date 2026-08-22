@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Button, Chip, Table } from "@heroui/react";
+import DeleteCarDialog from "./DeleteCarDialog";
 
 const statusColorMap = {
     available: "success",
@@ -19,7 +20,7 @@ const columns = [
     { id: "actions", name: "Actions" },
 ];
 
-const MyCarsTable = ({ cars = [] }) => {
+const MyCarsTable = ({ cars = [] , ownerEmail}) => {
     return (
         <div className="w-full overflow-hidden rounded-xl border border-border bg-card shadow-sm sm:rounded-2xl">
             <Table>
@@ -166,19 +167,12 @@ const MyCarsTable = ({ cars = [] }) => {
                                                     Update
                                                 </Button>
 
-                                                <Button
-                                                    size="sm"
-                                                    variant="flat"
-                                                    className="bg-error/10 px-3 font-semibold text-error transition-colors hover:bg-error/20"
-                                                    onPress={() =>
-                                                        console.log(
-                                                            "Delete car:",
-                                                            car._id
-                                                        )
-                                                    }
-                                                >
-                                                    Delete
-                                                </Button>
+                                                {/* // for delete button */}
+                                               <DeleteCarDialog
+                                                    car={car}
+                                                    ownerEmail={ownerEmail}
+                                                />
+
                                             </div>
                                         </Table.Cell>
                                     </Table.Row>

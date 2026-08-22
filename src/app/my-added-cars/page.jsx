@@ -84,7 +84,7 @@ const MyAddedCarsPage = async () => {
 
                 {/* ================= Table ================= */}
                 <section className="w-full">
-                    <MyCarsTable cars={myCars} />
+                    <MyCarsTable cars={myCars}  ownerEmail={ownerEmail}/>
                 </section>
             </div>
         </main>
