@@ -1,4 +1,4 @@
-import { serverMutation } from "../core/car";
+import { serverMutation } from "../core/server";
 
 
 
